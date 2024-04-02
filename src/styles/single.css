@@ -1,0 +1,14 @@
+.jumbotron{
+    text-align: center;
+    width: 600px;
+    height: auto;
+    margin: auto;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: small;
+}
+
+.text-lightgray {
+    color: lightgray !important; /* Asegúrate de que el color esté definido correctamente */
+}
