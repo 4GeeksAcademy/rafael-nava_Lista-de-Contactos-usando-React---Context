@@ -11,6 +11,13 @@ const getState = ({ getStore, getActions, setStore }) => {
           phone: "23423",
           address: "valencia",
         },
+        {
+          id: uuidv4(), // Agregamos un ID único para el contacto inicial
+          name: "juan",
+          email: "asdsa@gmail.com",
+          phone: "23423",
+          address: "valencia",
+        }
       ],
     },
     actions: {

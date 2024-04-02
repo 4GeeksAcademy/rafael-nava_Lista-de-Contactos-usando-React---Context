@@ -32,14 +32,14 @@ export const Demo = () => {
     const handleDeleteContact = (id) => {
         actions.deleteContact(id);
     };
-
     return (
         <div className="container">
             <h1>Contact List</h1>
             <ul className="list-group">
                 {store.contacts.map((contact, index) => (
                     <li key={index} className="list-group-item d-flex justify-content-between">
-                        <Link to={`/single/${contact.id}`}>
+                        {/* <Link to={`/single/${contact.id}`}>  se cambio por el index ya que este era su error */}
+                        <Link to={"/single/" + index}>
                             <h3>{contact.name}</h3>
                         </Link>
                         <div>

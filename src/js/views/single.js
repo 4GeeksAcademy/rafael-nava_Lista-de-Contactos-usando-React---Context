@@ -4,32 +4,16 @@ import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 export const Single = props => {
-	const [valor, setValor] = useState({});
 	const { store, actions } = useContext(Context);
-	const { id } = useParams
-	const params = useParams(id);
-	
-	const validar = () =>{
-		let  contactos = store.contacts 
-		setValor(contactos)
-	};
-	console.log(store.contacts);
-console.log(contactos);
-console.log(setValor);
-console.log(valor);
-
-	useEffect ( () => {
-		validar();
-	},[store.contacts])
-	
-
+	const params = useParams();
 	return (
 		<div className="jumbotron">
-			{/* <h4 className="display-4">Nombre: {store.contacts[params.id].name}</h4> */}
-			<h4 className="display-4">Nombre: {valor.name}</h4>
-			{/* <h4 className="display-4">Email: {store.contacts[params.theid].email}</h4>
-			<h4 className="display-4">Nro. Tlf: {store.contacts[params.theid].phone}</h4>
-			<h4 className="display-4">Direccion: {store.contacts[params.theid].address}</h4> */}
+			<hr className="my-4" />
+			<h1 className="display-4">Nombre: {store.contacts[params.index].name}</h1>
+			<h1 className="display-4">Email: {store.contacts[params.index].email}</h1>
+			<h1 className="display-4">Nro. Tlf: {store.contacts[params.index].phone}</h1>
+			<h1 className="display-4">Direccion: {store.contacts[params.index].address}</h1>
+			<hr className="my-4" />
 		</div>
 	);
 };
@@ -37,5 +21,3 @@ console.log(valor);
 Single.propTypes = {
 	match: PropTypes.object
 };
-
-// preguntar como funciona el protypes
