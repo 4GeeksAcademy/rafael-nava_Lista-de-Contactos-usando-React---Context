@@ -1,0 +1,19 @@
+.home {
+    text-align: center;
+    max-width: 600px; /* Cambiado de width a max-width para que el contenedor sea responsivo */
+    margin: auto;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 20px; /* Aumentado el padding para mayor espacio alrededor del contenido */
+  }
+  
+  .home img {
+    width: 100%; /* Modificado el ancho de la imagen para que se ajuste al ancho del contenedor */
+    max-width: 300px; /* Establecido un ancho máximo para la imagen */
+    display: block; /* Añadido display: block para centrar la imagen horizontalmente */
+    margin: 0 auto; /* Añadido margen automático para centrar la imagen horizontalmente */
+  }
+  
+  .card-body {
+    margin-top: 20px; /* Añadido margen superior para separar el título de la imagen */
+  }
