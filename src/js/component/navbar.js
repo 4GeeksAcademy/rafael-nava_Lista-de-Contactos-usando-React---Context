@@ -1,10 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../../styles/navbar.css";
+
+
 
 export const Navbar = () => {
   return (
     <>
-      <nav className="navbar navbar-light bg-light mb-3">
+      <nav className="navbar navbar-light bg-light mb-3" id="Navbar">
         <Link to="/">
           <button className="btn btn-primary">Home</button>
         </Link>
@@ -15,7 +18,7 @@ export const Navbar = () => {
         </div>
         <div>
           <Link to="/formulario">
-            <button className="btn btn-secondary">Agregar nuevos</button>
+            <button className="btn btn-secondary">Agregar</button>
           </Link>
         </div>
       </nav>

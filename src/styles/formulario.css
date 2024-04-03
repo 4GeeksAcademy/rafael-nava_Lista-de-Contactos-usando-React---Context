@@ -1,0 +1,15 @@
+.formulario {
+    text-align: center;
+    width: 600px;
+    height: 300px;
+    margin: auto;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  
+  #botonF {
+    display: block;
+    margin: auto;
+  }
+  

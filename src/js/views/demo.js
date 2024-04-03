@@ -15,10 +15,9 @@ export const Demo = () => {
   });
 
   // para que se carguen todos los contactos cuandon se abra la ventana
-  useEffect(() =>{
-    actions.loadContacts()
-  }
-    ,[])
+  useEffect(() => {
+    actions.loadContacts();
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,14 +26,20 @@ export const Demo = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (editingContact) {
-      actions.editContact(editingContact.id, newContact);
-      setEditingContact(null); // Después de editar, restablece el estado de edición
+    // Verifica que los campos name y phone no estén vacíos antes de guardar
+    if (newContact.name.trim() !== "" && newContact.phone.trim() !== "") {
+      if (editingContact) {
+        actions.editContact(editingContact.id, newContact);
+        setEditingContact(null); // Después de editar, restablece el estado de edición
+      } else {
+        actions.addContact(newContact);
+      }
+      setNewContact({ name: "", email: "", phone: "", address: "" });
     } else {
-      actions.addContact(newContact);
+      alert("Por favor, completa los campos obligatorios: Nombre y Teléfono (*)");
     }
-    setNewContact({ name: "", email: "", phone: "", address: "" });
   };
+  
 
   const handleEditContact = (contact) => {
     setEditingContact(contact);
@@ -63,43 +68,57 @@ export const Demo = () => {
   return (
     <div className="container">
       <h1>Lista de contactos</h1>
-      <ul className="list-group">
-        {store.contacts.map((contact, index) => (
-          <li
-            key={index}
-            className="list-group-item d-flex justify-content-between"
-          >
-            <Link
-              to={"/single/" + index}
-              style={{ textDecoration: "none", color: "lightgray" }}
-              onMouseOver={(e) => (e.target.style.color = "darkgray")}
-              onMouseOut={(e) => (e.target.style.color = "lightgray")}
+      <div
+        className="list-group list-group-flush overflow-auto"
+        style={{ height: "400px" }} // Altura fija para el desplazamiento
+        id="scrollspy-example"
+        data-bs-spy="scroll"
+        data-bs-target="#list-example"
+        data-bs-offset="0"
+        tabIndex="0"
+      >
+        <ul className="list-group" id="list-example">
+          {store.contacts.map((contact, index) => (
+            <li
+              key={index}
+              className="list-group-item"
             >
-              <h3>
-                <span>
-                  <i className="far fa-user"></i> {contact.name}
-                </span>
-              </h3>
-            </Link>
-            <div>
-              <button
-                className="btn btn-success"
-                onClick={() => handleEditContact(contact)}
+              <div className="row" id="divListaContatactos">
+              <div id="divContactoList">
+              <Link
+                to={"/single/" + index}
+                style={{ textDecoration: "none", color: "lightgray" }}
+                onMouseOver={(e) => (e.target.style.color = "darkgray")}
+                onMouseOut={(e) => (e.target.style.color = "lightgray")}
               >
-                Editar contacto
-              </button>
-              <button
-                className="btn btn-danger"
-                onClick={() => handleDeleteConfirmation(contact)}
-                data-bs-toggle="modal"
-                data-bs-target="#deleteModal"
-              >
-                Eliminar contacto
-              </button>
-            </div>
-          </li>
-        ))}
-      </ul>
+                <h3>
+                  <span>
+                    <i className="far fa-user"></i> {contact.name}
+                  </span>
+                </h3>
+              </Link>
+              </div>
+              <div id="divBotonesLista">
+                <button
+                  className="btn btn-success botonesContactos"
+                  onClick={() => handleEditContact(contact)}
+                >
+                  Editar
+                </button>
+                <button
+                  className="btn btn-danger botonesContactos"
+                  onClick={() => handleDeleteConfirmation(contact)}
+                  data-bs-toggle="modal"
+                  data-bs-target="#deleteModal"
+                >
+                  Eliminar
+                </button>
+              </div>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
 
       {/* Modal de Edición */}
       <div
@@ -126,7 +145,7 @@ export const Demo = () => {
               <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                   <label htmlFor="name" className="form-label">
-                    Nombre
+                    Nombre (*)
                   </label>
                   <input
                     type="text"
@@ -152,7 +171,7 @@ export const Demo = () => {
                 </div>
                 <div className="mb-3">
                   <label htmlFor="phone" className="form-label">
-                    Teléfono
+                    Teléfono (*)
                   </label>
                   <input
                     type="text"

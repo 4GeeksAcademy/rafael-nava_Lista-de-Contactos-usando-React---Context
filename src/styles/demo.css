@@ -1,14 +1,46 @@
-.formulario{
-    text-align: center;
-    width: 600px;
-    height: 300px;
-    margin: auto;
-    border: 1px solid lightgray;
-    border-radius: 5px;
-    padding: 10px;
+.container {
+  text-align: center;
+  border: 1px solid rgb(155, 155, 155);
+  border-radius: 5px;
+  padding: 10px;
 }
 
-#botonF{
-    display: block;
-    margin: auto;
+
+@media (min-width: 800px) {
+  .container {
+    margin: auto; /* Solo centrar cuando la pantalla sea más grande que 768px */
+    width: 50%; /* O cualquier otro ancho deseado */
+    max-width: 800px; /* Ancho máximo para el contenedor */
+  }
 }
+
+#exampleModal {
+  text-align: left !important;
+}
+
+
+#divListaContatactos {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+#divContactoList {
+  width: 60%;
+  display: flex;
+  align-items: center;
+}
+
+#divBotonesLista {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 0%;
+}
+
+.botonesContactos {
+  width: 50%; /* Ajusta el ancho de los botones */
+  margin-left: 5px; /* Espacio entre los botones */
+}
+
