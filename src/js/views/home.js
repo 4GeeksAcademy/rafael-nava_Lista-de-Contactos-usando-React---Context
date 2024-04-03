@@ -6,6 +6,12 @@ import "../../styles/home.css";
 export const Home = () => {
 	const { store, actions } = useContext(Context);
 
+  // para que se carguen todos los contactos cuandon se abra la ventana
+  useEffect(() =>{
+    actions.loadContacts()
+  }
+    ,[])
+
   return(
     <>
     <div className="home">

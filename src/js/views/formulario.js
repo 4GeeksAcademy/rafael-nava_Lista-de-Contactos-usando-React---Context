@@ -8,6 +8,7 @@ export const ContactList = () => {
   const { store, actions } = useContext(Context);
   const navigate = useNavigate()
 
+
   const [newContact, setNewContact] = useState({ name: '', email: '', phone: '', address:'' });
 
   const handleChange = (e) => {
