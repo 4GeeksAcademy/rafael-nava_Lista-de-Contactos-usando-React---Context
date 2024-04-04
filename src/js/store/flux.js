@@ -120,7 +120,13 @@ const getState = ({ getStore, getActions, setStore }) => {
           }
           let data = await response.json();
           console.log(data);
-          getActions().loadContacts(); // Recargar la lista de contactos después de actualizar uno existente
+            //NO ME FUNCIONA DE ESTA MANERA POR ESO AGREGO LA RECARGA DE VENTANA EN LA FUNCION confirmDelete DE DEMO
+          // Actualizar el estado local solo si la eliminación de la API fue exitosa
+          // const updatedContacts = store.contacts.filter(contact => contact.id !== id);
+           // actions.setContacts(updatedContacts);
+
+            // Recargar la lista de contactos después de eliminar uno existente
+            // actions.loadContacts();
         } catch (error) {
           console.error(error.message);
         }
