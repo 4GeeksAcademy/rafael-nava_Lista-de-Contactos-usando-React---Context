@@ -43,19 +43,19 @@ export const ContactList = () => {
       </ul> */}
       <form onSubmit={handleSubmit}>
         <div className="input-group input-group-sm mb-3">
-          <span className="input-group-text" id="inputGroup-sizing-sm">Nombre (*)</span>
+          <span className="input-group-text col-2" id="inputGroup-sizing-sm">Nombre (*)</span>
           <input type="text" name="name" value={newContact.name} onChange={handleChange} className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" />
         </div>
         <div className="input-group input-group-sm mb-3">
-          <span className="input-group-text" id="inputGroup-sizing-sm">Email</span>
+          <span className="input-group-text col-2" id="inputGroup-sizing-sm">Email</span>
           <input type="text" name="email" value={newContact.email} onChange={handleChange} className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" />
         </div>
         <div className="input-group input-group-sm mb-3">
-          <span className="input-group-text" id="inputGroup-sizing-sm">Nro. Tlf (*)</span>
+          <span className="input-group-text col-2" id="inputGroup-sizing-sm">Nro. Tlf (*)</span>
           <input type="number" name="phone" value={newContact.phone} onChange={handleChange} className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" />
         </div>
         <div className="input-group input-group-sm mb-3">
-          <span className="input-group-text" id="inputGroup-sizing-sm">Direccion</span>
+          <span className="input-group-text col-2" id="inputGroup-sizing-sm">Direccion</span>
           <input type="text" name="address" value={newContact.address} onChange={handleChange} className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" />
         </div>
         <button type="submit" className="btn btn-outline-success" id="botonF">Success</button>
